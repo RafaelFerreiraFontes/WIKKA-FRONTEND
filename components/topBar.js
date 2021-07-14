@@ -1,10 +1,10 @@
-import style from "../styles/topBar.module.css";
+import styles from "../styles/topBar.module.css";
 
 function TopBar()
 {
-    return <nav>
-
-    </nav>;
+    return (<nav className={styles.topBar}>
+        <a className={styles.shopName}href="#">WIKKA</a>
+    </nav>);
 }
 
 export default TopBar;
