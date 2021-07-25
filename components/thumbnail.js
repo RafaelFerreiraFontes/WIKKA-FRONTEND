@@ -1,9 +1,9 @@
 import Image from "next/image";
 
-function Thumbnail()
+function Thumbnail({ thumbnail_image })
 {
     return(
-        <Image src="" />
+        <Image src={ thumbnail_image } />
     )
 }
 
