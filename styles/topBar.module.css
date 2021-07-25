@@ -6,7 +6,11 @@
 
     height: 80px;
 
-    margin: 0;
+    padding: 0;
+
+    top: 0;
+
+    position: sticky;
 
     justify-content: space-between;
 
@@ -24,4 +28,175 @@
     margin-left: 86px;
 
     text-decoration: none;
+}
+
+.seachBar
+{
+    margin: 0;
+
+    width: 480px;
+
+    height: 45px;
+
+    display: flex;
+
+    align-content: center;
+
+    justify-content: space-between;
+
+    flex-direction: row;
+
+    background-color: #FFFFFF;
+
+    border: 4.25px solid #FFFFFF;
+}
+
+.textInput
+{
+    width: 385px;
+
+    height: 34px;
+
+    margin-left: 15px;
+
+    font-size: 18px;
+
+    align-self: center;
+
+    color: #000000;
+
+    background-color: #FFFFFF;
+
+    outline: none;
+
+    border: none;
+}
+
+.seachButton
+{
+    display: flex;
+
+    width: 45px;
+
+    height: 45px;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background-color: #333333;
+
+    border: none;
+}
+
+.menuButton
+{
+    width: 54px;
+
+    height: 54px;
+    
+    margin-left: 15px;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background-color: #333333;
+
+    border: 4.25px solid #FFFFFF;
+}
+
+.wishlistButton
+{
+    width: 24px;
+
+    height: 24px;
+
+    align-items: center;
+
+    margin: 0 12px;
+
+    justify-content: center;
+
+    background-color: #0000;
+
+    border: none;
+
+    outline: none;
+}
+
+.loginButton
+{
+
+    width: 95px;
+
+    display: flex;
+
+    font-size: 16px;
+    
+    font-weight: bold;
+
+    color: #fff;
+
+    align-items: center;
+    
+    justify-content: space-around;
+
+    flex-direction: row;
+
+    margin: 0 8px;
+
+    background-color: #0000;
+
+    border: none;
+
+    outline: none;
+}
+
+.cartButton
+{
+    width: 24px;
+
+    height: 24px;
+    
+    margin: 0 12px;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background-color: #0000;
+
+    border: none;
+
+    outline: none;
+}
+
+.nav_div_start
+{   
+    display: flex;
+
+    align-items: center;
+    
+    justify-content: flex-start;
+}
+
+.nav_div_mid
+{
+    display: flex;
+
+    align-items: center;
+    
+    justify-content: center;
+}
+
+.nav_div_end
+{
+    display: flex;
+
+    align-items: center;
+
+    justify-items: center;
+
+    justify-content: flex-end;
 }
