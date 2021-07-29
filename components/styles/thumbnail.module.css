@@ -1,0 +1,46 @@
+.container
+{
+    display: flex;
+
+    flex-direction: column;
+
+    margin: 0 auto;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background-color: #C4C4C4;
+}
+
+.carousel_slide
+{
+    position: relative;
+    
+    width: 100%;
+    
+    overflow: hidden;
+
+    margin: 0;
+
+    padding: 0;
+
+    list-style: none;
+}
+
+.carousel_slide_item
+{
+    display: none;
+    margin: 0;
+}
+
+.fade-in
+{
+    transition: opacity 1s ease;
+}
+
+.fade-out
+{
+    opacity: 0;
+    transition: opacity 1s ease;
+}

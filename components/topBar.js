@@ -8,7 +8,7 @@ import Cart from "../images/icons/cart.svg";
 
 import Login from "../images/icons/login.svg";
 
-import styles from "../styles/topBar.module.css";
+import styles from "./styles/topBar.module.css";
 
 function TopBar()
 {

@@ -1,0 +1,26 @@
+.container
+{
+    
+    display: flex;
+
+    flex-direction: row;
+
+    align-items: center;
+
+    justify-content: center;
+
+    margin: 75px auto;
+}
+
+.imagegroup
+{
+    display: flex;
+
+    flex-direction: row;
+
+    align-items: center;
+
+    justify-content: center;    
+
+    margin: auto 68px;
+}
