@@ -5,9 +5,9 @@ import Image from "next/image";
 import styles from "./styles/thumbnail.module.css"
 
   
-function Thumbnail({ thumbnail_images })
+function Thumbnail({ thumbnail_images = [] })
 {
-    const [fadeProp, setFadeProp] = useState( { fade: 'fade-in' });
+    const [fadeProp, setFadeProp] = useState( { fade: styles.fade_image_in, });
 
     const [image_index, setIndex] = useState(0);
 
@@ -15,21 +15,35 @@ function Thumbnail({ thumbnail_images })
         setIndex((image_index + 1) % thumbnail_images.length)
     }
 
-    useEffect(() => {
-        setTimeout(changeImage, 300);
-    }, [image_index]);
+    useEffect( () => 
+               
+               {
+                    setTimeout(changeImage, 3000);
+                    setFadeProp( { fade: styles.fade_image_in } )
+               }, 
+               [image_index]
+             );
 
-    useEffect(()=>{
-        const timeout = setInterval(() =>{
-            if(fadeProp.fade === 'fade-in')
-                setFadeProp( { fade: 'fade-out' } )
-            
-            else
-                setFadeProp( { fade: 'fade-in' } )
-        }, 1000);
+    useEffect( ()=>
+                
+                {
+                    const timeout = setInterval
+                    ( 
+                        () =>
+                        {
+                            if(fadeProp.fade == styles.fade_image_in)
+                                setFadeProp( { fade: styles.fade_image_out } )
+                            
+                            else
+                                setFadeProp( { fade: styles.fade_image_in } )
+                        },
+                    1500
+                   );
 
-        return () => clearInterval(timeout)
-    },[fadeProp])
+                    return () => clearInterval(timeout)
+                },
+                [fadeProp]
+             )
 
     return (
         <div className={styles.container}>
@@ -41,20 +55,24 @@ function Thumbnail({ thumbnail_images })
                     thumbnail_images.map((element, index) => {
 
                         let display = "none";
-                        let fade = 'fade-out';
+                        let fade = styles.fade_image_out;
+                        let fadeBackground = styles.fade_background_out;
 
                         if(index == image_index)
                         {
-                            display = "block";
+                            display = "flex";
+
                             fade = fadeProp.fade;
+
+                            fadeBackground = fadeProp.fade == styles.fade_image_in ? styles.fade_background_in : styles.fade_background_out;
                         }
 
                          return  ( 
                             <li key={`image_${index}`} className={styles.carousel_slide_item} style={{display: display}}> 
 
-                                <a href={element.route} className={fade}>
+                                <a href={element.route} className={fadeBackground}>
                             
-                                    <Image src={ element.image } width={1920} height={475}/>
+                                    <Image src={ element.image } className={fade} width={1920} height={500}/>
                             
                                 </a>    
                             

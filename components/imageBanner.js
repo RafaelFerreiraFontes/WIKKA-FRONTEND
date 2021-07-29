@@ -10,12 +10,13 @@ function ImageBanner({ imgs = [] })
 
         <div className={styles.container}>
                 {
-                    imgs.map( (img, index) => (
+                    imgs.map( (element, index) => (
 
                             <div className={styles.imagegroup} key={`Image_${index}`}>
 
-                                <Image className={styles.image} src={ img } height={ 55 } width={ 318 } />
-                                
+                                <a href={element.route}>
+                                    <Image className={styles.image} src={ element.image } height={ 55 } width={ 318 } />
+                                </a>
                                 { index < (imgs.length - 1) && <DivLine className={styles.divline} /> }
                             </div>
 

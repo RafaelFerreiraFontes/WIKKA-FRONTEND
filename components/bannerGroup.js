@@ -8,12 +8,15 @@ function BannerGroup({ imgs = [] })
 
         <div className={styles.container}>
                 {
-                    imgs.map( (img, index) => (
+                    imgs.map( (element, index) => (
 
                             <div className={styles.imagegroup} key={`banner_${index}`}>
 
-                                <Image className={styles.image} src={ img } height={ 300 } width={ 300 } />                                
+                                <a href={ element.route }>
+
+                                    <Image className={styles.image} src={ element.image } height={ 300 } width={ 300 } />                                
                             
+                                </a>
                             </div>
                         
                         )

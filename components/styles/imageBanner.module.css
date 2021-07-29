@@ -28,3 +28,16 @@
 
     justify-content: center;    
 }
+
+.image
+{
+    transition: transform 0.25s ease;
+}
+
+
+.image:hover
+{
+    transition: transform 0.25s ease;
+
+    transform: scale(1.05);
+}

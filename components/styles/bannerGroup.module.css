@@ -23,4 +23,13 @@
     justify-content: center;    
 
     margin: auto 68px;
+
+    transition: transform 0.25s ease;
+}
+
+.imagegroup:hover
+{
+    transition: transform 0.25s ease;
+
+    transform: scale(1.15);
 }

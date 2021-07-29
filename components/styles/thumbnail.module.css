@@ -31,16 +31,36 @@
 .carousel_slide_item
 {
     display: none;
+    
     margin: 0;
 }
 
-.fade-in
+.fade_image_in
 {
     transition: opacity 1s ease;
 }
 
-.fade-out
+.fade_image_out
 {
     opacity: 0;
+    
     transition: opacity 1s ease;
+}
+
+.fade_background_in
+{
+    display: flex;
+
+    background: #C4C4C4;
+    
+    transition: background 0.5s ease;
+}
+
+.fade_background_out
+{
+    display: flex;
+
+    background: #ffffff;
+ 
+    transition: background 0.5s ease;
 }
