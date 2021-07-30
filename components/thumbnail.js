@@ -4,7 +4,8 @@ import Image from "next/image";
 
 import styles from "./styles/thumbnail.module.css"
 
-  
+let image_timeout = 0;
+
 function Thumbnail({ thumbnail_images = [] })
 {
     const [fadeProp, setFadeProp] = useState( { fade: styles.fade_image_in, });
@@ -12,13 +13,15 @@ function Thumbnail({ thumbnail_images = [] })
     const [image_index, setIndex] = useState(0);
 
     function changeImage(){
-        setIndex((image_index + 1) % thumbnail_images.length)
+        setIndex( (image_index + 1) % thumbnail_images.length )
     }
+
+    
 
     useEffect( () => 
                
                {
-                    setTimeout(changeImage, 3000);
+                    image_timeout = setTimeout(changeImage, 3000);
                     setFadeProp( { fade: styles.fade_image_in } )
                }, 
                [image_index]
@@ -83,7 +86,28 @@ function Thumbnail({ thumbnail_images = [] })
                     )
 
                 }
-                 
+
+                { 
+                    thumbnail_images.length > 1 &&  
+                        <ul className={styles.carousel_slide_menu}>
+                            {
+                                thumbnail_images.map(
+                                    (img,index) => 
+                                    {
+                                        let active = "";
+
+                                        if(index == image_index)
+                                            active = styles.active;
+
+                                        return ( 
+                                            <li onClick={()=>{ setIndex( index ); clearTimeout(image_timeout); } } className={`${styles.carousel_slide_menu_item} ${active}`}  key={`dot-${index}`}></li> 
+                                         );
+                                    }
+                                )
+                            }
+
+                        </ul> 
+                } 
             </ul>
         
         </div>

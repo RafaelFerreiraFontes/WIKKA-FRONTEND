@@ -64,3 +64,55 @@
  
     transition: background 0.5s ease;
 }
+
+.carousel_slide_menu
+{
+    
+    display: flex;
+    
+    flex-direction: row;
+    
+    flex-wrap: nowrap;
+    
+    align-items: center;
+    
+    justify-content: flex-end;
+    
+    position: absolute;
+    
+    margin: 0;
+    
+    bottom: 15px;
+
+    right: 50px;
+
+    list-style: none;
+
+    padding-right: 16px;
+
+    cursor: pointer;
+}
+
+.carousel_slide_menu_item
+{
+    width: 12px;
+
+    height: 12px;
+
+    border-radius: 13px;
+
+    margin: 0 4px;
+
+    background-color: #ffffff;
+
+    transition: transform 0.75s ease;
+}
+
+.active
+{
+    transition: transform 0.75s ease;
+
+    transform: scale(1.35);
+
+    background-color: black;
+}
