@@ -15,9 +15,10 @@ function ImageBanner({ imgs = [] })
                             <div className={styles.imagegroup} key={`Image_${index}`}>
 
                                 <a href={element.route}>
-                                    <Image className={styles.image} src={ element.image } height={ 55 } width={ 318 } />
+                                    <Image className={styles.image} src={ element.image } height={ 38 } width={ 226 } />
                                 </a>
-                                { index < (imgs.length - 1) && <DivLine className={styles.divline} /> }
+
+                                { index < (imgs.length - 1) && <DivLine className={styles.divline} width={1.5} height={28}  /> }
                             </div>
 
                         )

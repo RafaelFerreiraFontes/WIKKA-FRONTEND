@@ -18,6 +18,10 @@ import image_banner_1 from "../images/image_banner_1.jpg";
 
 import banner_1 from "../images/banner_1.jpg";
 
+import banner_circule_1 from "../images/banner_circule_1.jpg";
+
+import CategoryBannerCirculeGroup from "../components/categoryBannerCirculeGroup";
+
 
 function HomePage()
 {
@@ -30,6 +34,17 @@ function HomePage()
             <ImageBanner imgs={ [ {"image":image_banner_1, "route": "/"}, {"image":image_banner_1, "route": "/"}, {"image":image_banner_1, "route": "/"}, {"image":image_banner_1, "route": "/"} ] }></ImageBanner>
             
             <BannerGroup imgs={ [{"image":banner_1, "route": "/"}, {"image":banner_1, "route": "/"}, {"image":banner_1, "route": "/"}] } ></BannerGroup>     
+
+
+             <CategoryBannerCirculeGroup banners={ 
+                [ 
+                    {'img': banner_circule_1, 'link': "#", 'name': "Produto"},
+                    {'img': banner_circule_1, 'link': "#", 'name': "Produto"},
+                    {'img': banner_circule_1, 'link': "#", 'name': "Produto"}, 
+                    {'img': banner_circule_1, 'link': "#", 'name': "Produto"}, 
+                    {'img': banner_circule_1, 'link': "#", 'name': "Produto"} 
+                ] 
+            }/> 
     </div>    
     );
 }
