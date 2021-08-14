@@ -42,6 +42,21 @@ function HomePage()
                     {'img': banner_circule_1, 'link': "#", 'name': "Produto"},
                     {'img': banner_circule_1, 'link': "#", 'name': "Produto"}, 
                     {'img': banner_circule_1, 'link': "#", 'name': "Produto"}, 
+                    {'img': banner_circule_1, 'link': "#", 'name': "Produto"},
+                    {'img': banner_circule_1, 'link': "#", 'name': "Produto"},
+                    {'img': banner_circule_1, 'link': "#", 'name': "Produto"},
+                    {'img': banner_circule_1, 'link': "#", 'name': "Produto"}, 
+                    {'img': banner_circule_1, 'link': "#", 'name': "Produto"}, 
+                    {'img': banner_circule_1, 'link': "#", 'name': "Produto"},
+                    {'img': banner_circule_1, 'link': "#", 'name': "Produto"},
+                    {'img': banner_circule_1, 'link': "#", 'name': "Produto"},
+                    {'img': banner_circule_1, 'link': "#", 'name': "Produto"}, 
+                    {'img': banner_circule_1, 'link': "#", 'name': "Produto"}, 
+                    {'img': banner_circule_1, 'link': "#", 'name': "Produto"},
+                    {'img': banner_circule_1, 'link': "#", 'name': "Produto"},
+                    {'img': banner_circule_1, 'link': "#", 'name': "Produto"},
+                    {'img': banner_circule_1, 'link': "#", 'name': "Produto"}, 
+                    {'img': banner_circule_1, 'link': "#", 'name': "Produto"}, 
                     {'img': banner_circule_1, 'link': "#", 'name': "Produto"} 
                 ] 
             }/> 

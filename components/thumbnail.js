@@ -12,11 +12,10 @@ function Thumbnail({ thumbnail_images = [] })
 
     const [image_index, setIndex] = useState(0);
 
-    function changeImage(){
+    function changeImage()
+    {
         setIndex( (image_index + 1) % thumbnail_images.length )
     }
-
-    
 
     useEffect( () => 
                

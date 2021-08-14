@@ -1,25 +1,24 @@
 import Image from "next/image";
 
-import cardstyles from "./styles/categoryBannerCirculeGroup.module.css";
+import cardstyles from "./styles/categoryBannerCircule.module.css";
 
 function CategoryBanner({link = "/", img = null, name = ""})
 {
-    console.log("Hello")
     
-    return (
-        <div className={cardstyles.circule}>
+    return(
+        <div className={`${cardstyles.circule}`} >
+
             { 
                 (img != null ) &&  
-                
-                ( 
+            
                     <a className={cardstyles.route} href={link}>
                        
                         <Image src={ img } /> 
                        
-                        <p className={cardstyles.text}> { name } </p>
+                        <p className={cardstyles.text} href={link}> { name } </p>
                     
                     </a>
-                ) 
+                 
             }
 
         </div>
