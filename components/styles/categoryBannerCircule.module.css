@@ -43,7 +43,9 @@
     display: flex;
     opacity: 1;
     transform: scale(1);
+    transform: translate(0, 0);
     transition-duration: 1s;
+    transition-duration: .6s ease-in-out;
 }
 
 .inactive
@@ -51,4 +53,16 @@
     opacity: 0;
     transform: scale(0.25);
     transition-duration: 1s ease;
+}
+
+.left
+{
+    transform: translate(75%, 0);
+    transition-duration: .6s ease-in-out;
+}
+
+.right
+{
+    transform: translate(-75%, 0);   
+    transition-duration: .6s ease-in-out;
 }

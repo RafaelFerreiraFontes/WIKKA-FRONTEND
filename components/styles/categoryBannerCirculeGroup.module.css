@@ -68,8 +68,8 @@
 
     background-color: black;
 
-    transition: border 1s ease;
-    transition: background-color 0.5s ease-in-out;
+    transition: border 1s ease-in-out;
+    transition: background-color 0.25s ease-in-out;
 }
 
 .list_index_element:first-child
@@ -81,7 +81,7 @@
 {
     background-color: #fff;
     
-    border: 5px solid #333f;
+    border: 4px solid #333c;
 
     transition-duration: 1s ease;
 }

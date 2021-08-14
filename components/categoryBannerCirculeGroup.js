@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect} from 'react';
 
 import styles from "./styles/categoryBannerCirculeGroup.module.css";
 
@@ -31,6 +31,8 @@ function CategoryBannerCirculeGroup({ banners = [] })
 {
     const [currents, setCurrents] = useState([0,1,2,3,4]);
     const [currentIndex, setIndex] = useState(0);
+    const [transition, setTrans] = useState("");
+    const [items, updateItems] = useState([]);
 
     if(banners.length < 5)
        return (<div></div>);
@@ -41,17 +43,54 @@ function CategoryBannerCirculeGroup({ banners = [] })
         setCurrents((currents[4] + 5 > banners.length - 1) ? [0, 1, 2, 3, 4] : moveArray(currents,5));
         
         setIndex(( (currentIndex + 1) > (arrayIndex.length - 1) ) ? 0 : (currentIndex + 1));
+        
+        setTrans(cardStyles.left);
     }
     
     const previous = () => {    
         setCurrents((currents[0] - 5 >= 0) ? moveArray(currents,-5) : moveArray([0, 1, 2, 3, 4], banners.length - 5))
+
         setIndex(( (currentIndex - 1) < 0 ) ? arrayIndex[arrayIndex.length - 1] : (currentIndex - 1));
+        
+        setTrans(cardStyles.right);
     }
+
+    const createBanners = (banners) => {
+        let arrayBanners = [];
+
+        banners.map((element, index) => {
+                                    
+            let active = cardStyles.inactive;
+            let current = false;
+            let trans = ( transition == cardStyles.left) ? cardStyles.right : cardStyles.left;
+
+            if(currents.includes(index))
+            {
+                active = cardStyles.active;
+                current = true;
+                trans = "";
+            }
+
+            arrayBanners.push(
+                <div className={`${active} ${ (trans == "") ? "" : transition }`} key={`Carousel_Category_Banner_${index}`}>
+                    {current && (<CategoryBanner link={element.link} img={element.img} name={element.name}></CategoryBanner>) } 
+                </div>
+            );
+        })
+
+        return arrayBanners;
+    }
+
+    useEffect(() => {
+
+        updateItems( createBanners(banners) ); 
+        
+    }, [transition, currents, currentIndex]
+    );
 
     const goToIndex = (newIndex) => {
         setCurrents(moveArray([0, 1, 2, 3, 4], 5 * newIndex))
-    }
-
+    };
 
     return (
 
@@ -60,25 +99,13 @@ function CategoryBannerCirculeGroup({ banners = [] })
 
                 <div className={styles.carousel_container}>
                     <Arrow_Left onClick={previous}/>
+                        
                         {
-                            banners.map((element, index) => {
-                                
-                                let active = cardStyles.inactive;
-                                let current = false;
-
-                                if(currents.includes(index))
-                                {
-                                    active = cardStyles.active;
-                                    current = true;
-                                }
-
-                                return(
-                                    <div className={active} key={`Carousel_Category_Banner_${index}`}>
-                                        {current && (<CategoryBanner link={element.link} img={element.img} name={element.name}></CategoryBanner>) } 
-                                    </div>
-                                );
+                            items.map((element) => {
+                                return element;
                             })
                         }
+
                     <Arrow_Right onClick={next}/>
 
                 </div>
