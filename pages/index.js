@@ -38,26 +38,26 @@ function HomePage()
 
              <CategoryBannerCirculeGroup banners={ 
                 [ 
-                    {'img': banner_circule_1, 'link': "#", 'name': "Produto"},
-                    {'img': banner_circule_1, 'link': "#", 'name': "Produto"},
-                    {'img': banner_circule_1, 'link': "#", 'name': "Produto"}, 
-                    {'img': banner_circule_1, 'link': "#", 'name': "Produto"}, 
-                    {'img': banner_circule_1, 'link': "#", 'name': "Produto"},
-                    {'img': banner_circule_1, 'link': "#", 'name': "Produto"},
-                    {'img': banner_circule_1, 'link': "#", 'name': "Produto"},
-                    {'img': banner_circule_1, 'link': "#", 'name': "Produto"}, 
-                    {'img': banner_circule_1, 'link': "#", 'name': "Produto"}, 
-                    {'img': banner_circule_1, 'link': "#", 'name': "Produto"},
-                    {'img': banner_circule_1, 'link': "#", 'name': "Produto"},
-                    {'img': banner_circule_1, 'link': "#", 'name': "Produto"},
-                    {'img': banner_circule_1, 'link': "#", 'name': "Produto"}, 
-                    {'img': banner_circule_1, 'link': "#", 'name': "Produto"}, 
-                    {'img': banner_circule_1, 'link': "#", 'name': "Produto"},
-                    {'img': banner_circule_1, 'link': "#", 'name': "Produto"},
-                    {'img': banner_circule_1, 'link': "#", 'name': "Produto"},
-                    {'img': banner_circule_1, 'link': "#", 'name': "Produto"}, 
-                    {'img': banner_circule_1, 'link': "#", 'name': "Produto"}, 
-                    {'img': banner_circule_1, 'link': "#", 'name': "Produto"} 
+                    {'img': banner_circule_1, 'link': "#", 'name': "Produto1"},
+                    {'img': banner_circule_1, 'link': "#", 'name': "Produto2"},
+                    {'img': banner_circule_1, 'link': "#", 'name': "Produto3"}, 
+                    {'img': banner_circule_1, 'link': "#", 'name': "Produto4"}, 
+                    {'img': banner_circule_1, 'link': "#", 'name': "Produto5"},
+                    {'img': banner_circule_1, 'link': "#", 'name': "Produto6"},
+                    {'img': banner_circule_1, 'link': "#", 'name': "Produto7"},
+                    {'img': banner_circule_1, 'link': "#", 'name': "Produto8"}, 
+                    {'img': banner_circule_1, 'link': "#", 'name': "Produto9"}, 
+                    {'img': banner_circule_1, 'link': "#", 'name': "Produto10"},
+                    {'img': banner_circule_1, 'link': "#", 'name': "Produto11"},
+                    {'img': banner_circule_1, 'link': "#", 'name': "Produto12"},
+                    {'img': banner_circule_1, 'link': "#", 'name': "Produto13"}, 
+                    {'img': banner_circule_1, 'link': "#", 'name': "Produto14"}, 
+                    {'img': banner_circule_1, 'link': "#", 'name': "Produto15"},
+                    {'img': banner_circule_1, 'link': "#", 'name': "Produto16"},
+                    {'img': banner_circule_1, 'link': "#", 'name': "Produto17"},
+                    {'img': banner_circule_1, 'link': "#", 'name': "Produto18"}, 
+                    {'img': banner_circule_1, 'link': "#", 'name': "Produto19"}, 
+                    {'img': banner_circule_1, 'link': "#", 'name': "Produto20"} 
                 ] 
             }/> 
     </div>    

@@ -10,11 +10,6 @@ import Arrow_Right from "../images/icons/arrow_right.svg";
 
 import CategoryBanner  from "./categoryBannerCircule";
 
-function moveArray(currents, pass)
-{
-    return [currents[0] + pass, currents[1] + pass, currents[2] + pass, currents[3] + pass, currents[4] + pass];
-}
-
 function listIndex(quant)
 {   
     let l = [];
@@ -27,11 +22,11 @@ function listIndex(quant)
     return l;
 }
 
+
 function CategoryBannerCirculeGroup({ banners = [] })
 {
-    const [currents, setCurrents] = useState([0,1,2,3,4]);
+    const [pos , setPos] = useState(0);
     const [currentIndex, setIndex] = useState(0);
-    const [transition, setTrans] = useState("");
     const [items, updateItems] = useState([]);
 
     if(banners.length < 5)
@@ -40,57 +35,65 @@ function CategoryBannerCirculeGroup({ banners = [] })
     let arrayIndex = listIndex(banners.length);
 
     const next = () => {
-        setCurrents((currents[4] + 5 > banners.length - 1) ? [0, 1, 2, 3, 4] : moveArray(currents,5));
-        
-        setIndex(( (currentIndex + 1) > (arrayIndex.length - 1) ) ? 0 : (currentIndex + 1));
-        
-        setTrans(cardStyles.left);
+        if( (currentIndex + 1) <= (arrayIndex.length - 1) )
+        {
+            setPos(pos + ( 192 * 5 ));
+
+            setIndex( (currentIndex + 1) );
+        }
+        else
+        {
+            let fistpos = (arrayIndex.length - 1);
+
+            setPos(pos - ( ( 192 * 5 ) * fistpos) );
+
+            setIndex( 0 );
+        }
     }
     
     const previous = () => {    
-        setCurrents((currents[0] - 5 >= 0) ? moveArray(currents,-5) : moveArray([0, 1, 2, 3, 4], banners.length - 5))
+        if( (currentIndex - 1) >= 0 )
+        {
+            setPos(pos - ( 192 * 5 ));
 
-        setIndex(( (currentIndex - 1) < 0 ) ? arrayIndex[arrayIndex.length - 1] : (currentIndex - 1));
-        
-        setTrans(cardStyles.right);
+            setIndex( (currentIndex - 1) );
+        }
+        else
+        {
+            let lastpos = (arrayIndex.length - 1);
+
+            setPos(pos + ( ( 192 * 5 ) * lastpos) );
+
+            setIndex( arrayIndex[lastpos] );
+        }
     }
 
     const createBanners = (banners) => {
         let arrayBanners = [];
 
         banners.map((element, index) => {
-                                    
-            let active = cardStyles.inactive;
-            let current = false;
-            let trans = ( transition == cardStyles.left) ? cardStyles.right : cardStyles.left;
-
-            if(currents.includes(index))
-            {
-                active = cardStyles.active;
-                current = true;
-                trans = "";
-            }
-
             arrayBanners.push(
-                <div className={`${active} ${ (trans == "") ? "" : transition }`} key={`Carousel_Category_Banner_${index}`}>
-                    {current && (<CategoryBanner link={element.link} img={element.img} name={element.name}></CategoryBanner>) } 
-                </div>
+                    <CategoryBanner  key={`Carousel_Category_Banner_${index}`} link={element.link} img={element.img} name={element.name} pos={ pos  }></CategoryBanner>
             );
         })
 
         return arrayBanners;
     }
+    
+    const goToIndex = (newIndex) => {
+        let newPos = newIndex - currentIndex;
+
+        setPos(pos + ( ( 192 * 5 ) * newPos) );
+
+        setIndex(newIndex);
+    };
 
     useEffect(() => {
 
         updateItems( createBanners(banners) ); 
         
-    }, [transition, currents, currentIndex]
+    }, [currentIndex]
     );
-
-    const goToIndex = (newIndex) => {
-        setCurrents(moveArray([0, 1, 2, 3, 4], 5 * newIndex))
-    };
 
     return (
 
@@ -99,12 +102,12 @@ function CategoryBannerCirculeGroup({ banners = [] })
 
                 <div className={styles.carousel_container}>
                     <Arrow_Left onClick={previous}/>
-                        
-                        {
-                            items.map((element) => {
-                                return element;
-                            })
-                        }
+
+                        <div className={styles.carousel_container_items}>
+                            {
+                                items
+                            }
+                        </div>
 
                     <Arrow_Right onClick={next}/>
 
@@ -121,7 +124,7 @@ function CategoryBannerCirculeGroup({ banners = [] })
                                 select = styles.select;
                             }
 
-                            return ( <li className={`${styles.list_index_element} ${select}`} key={`Group_Banner_index_${index}`} onClick={()=>{ goToIndex(index);  setIndex(index);} } ></li>);
+                            return ( <li className={`${styles.list_index_element} ${select}`} key={`Group_Banner_index_${index}`} onClick={()=>{ goToIndex(index)} } ></li>);
                             
                             }
                         )
