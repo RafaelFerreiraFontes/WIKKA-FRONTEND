@@ -1,0 +1,52 @@
+.container
+{
+    display: flex;
+
+    width: 1200px;
+
+    margin: 12px auto;
+
+    align-items: center;
+
+    text-align: center;
+
+    justify-content: center;
+
+    overflow-x: hidden;
+}
+
+.line
+{
+    display:  flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 920px;
+
+    height: 0px;
+
+    border: 1px solid #000a;
+}
+
+.text
+{
+    display: inline;
+
+    flex-direction: row;
+
+    font-size: 20px;
+
+    font-family: "Source Sans Pro Regular",sans-serif;
+    
+    font-weight: 700;
+
+    align-items: center;
+
+    white-space: nowrap;
+
+    justify-content: center;
+
+    margin: 0 16px;
+}

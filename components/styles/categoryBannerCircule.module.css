@@ -3,6 +3,17 @@
     position: relative;
 
     transition: position 1s ease-in-out;
+
+    transform: scale(1);
+
+    transition: tranform 0.6s ease-in-out;
+}
+
+.container:hover
+{
+    transform: scale(1.25);
+    
+    transition: transform 0.6s ease-in-out;
 }
 
 .circule

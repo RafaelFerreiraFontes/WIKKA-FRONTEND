@@ -22,6 +22,9 @@ import banner_circule_1 from "../images/banner_circule_1.jpg";
 
 import CategoryBannerCirculeGroup from "../components/categoryBannerCirculeGroup";
 
+import DivGroup from "../components/divGroup";
+import ProductGrid from "../components/productGrid";
+
 
 function HomePage()
 {
@@ -59,7 +62,17 @@ function HomePage()
                     {'img': banner_circule_1, 'link': "#", 'name': "Produto19"}, 
                     {'img': banner_circule_1, 'link': "#", 'name': "Produto20"} 
                 ] 
-            }/> 
+            } /> 
+
+            <ProductGrid text={"Mais Procurados"} />
+
+            <ProductGrid text={"Recomendado Para Você"} />
+
+            <ProductGrid text={"Ofertas Imperdíveis"} />
+            
+            <ProductGrid text={"Tendências"} />
+            
+
     </div>    
     );
 }
