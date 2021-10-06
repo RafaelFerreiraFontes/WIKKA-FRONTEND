@@ -6,7 +6,7 @@
 
     width: 100%;
 
-    height: 45px;
+    height: 2.813rem;
 
     align-items: center;
 
@@ -23,7 +23,7 @@
   
     flex-wrap: nowrap;
   
-    margin: auto 86px;
+    margin: auto 5.375rem;
 }
 
 .routediv
@@ -47,12 +47,12 @@
 
     text-decoration: none;
 
-    padding-right: 8px;
+    padding-right: .5rem;
 }
 
 .arrow
 {
     display: flex;
 
-    padding-right: 8px;
+    padding-right: .5rem;
 }

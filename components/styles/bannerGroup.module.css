@@ -9,7 +9,7 @@
 
     justify-content: center;
 
-    margin: 75px auto;
+    margin: 4.688rem auto;
 }
 
 .imagegroup
@@ -22,7 +22,7 @@
 
     justify-content: center;    
 
-    margin: auto 18px;
+    margin: auto 1.125rem;
 
     transition: transform 0.25s ease;
 }

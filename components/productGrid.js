@@ -2,6 +2,10 @@ import styles from "./styles/productGrid.module.css";
 
 import DivGroup from "./divGroup";
 
+import ProductGridBanner from "./productGridBanner";
+
+import product_image_placeholder from "../images/product_image_1.png";
+
 function ProductGrid({text = "", products = [1,2,3,4,5,6,7,8]})
 {
     if(text === "" || products === [])
@@ -16,9 +20,7 @@ function ProductGrid({text = "", products = [1,2,3,4,5,6,7,8]})
                 {
                     products.map( (element, index) => {
                         return(
-                            <div key={`grid_product_${text}_group_${index}`} className={styles.grid_item} > 
-                                { element } 
-                            </div>
+                            <ProductGridBanner key={`grid_product_${text}_group_${index}`} name={"Product "+ element} image={product_image_placeholder} price={"99,90"}/>
                         );
                     })
                 }

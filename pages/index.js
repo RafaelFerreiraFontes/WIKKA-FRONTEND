@@ -32,11 +32,30 @@ function HomePage()
     <div>
             <TopBar></TopBar>
             
-            <Thumbnail thumbnail_images={[ {"image":image_1, "route": "/"}, {"image":image_2, "route": "/"}, {"image":image_3, "route": "/"} ]}></Thumbnail>
+            <Thumbnail thumbnail_images={ 
+                [ 
+                    {"image":image_1, "route": "/"}, 
+                    {"image":image_2, "route": "/"}, 
+                    {"image":image_3, "route": "/"} 
+                ] }>
+            </Thumbnail>
             
-            <ImageBanner imgs={ [ {"image":image_banner_1, "route": "/"}, {"image":image_banner_1, "route": "/"}, {"image":image_banner_1, "route": "/"}, {"image":image_banner_1, "route": "/"} ] }></ImageBanner>
+            <ImageBanner imgs={ 
+                [ 
+                    {"image":image_banner_1, "route": "/"}, 
+                    {"image":image_banner_1, "route": "/"}, 
+                    {"image":image_banner_1, "route": "/"}, 
+                    {"image":image_banner_1, "route": "/"} 
+                ] }>    
+            </ImageBanner>
             
-            <BannerGroup imgs={ [{"image":banner_1, "route": "/"}, {"image":banner_1, "route": "/"}, {"image":banner_1, "route": "/"}] } ></BannerGroup>     
+            <BannerGroup imgs={ 
+                [
+                    {"image":banner_1, "route": "/"}, 
+                    {"image":banner_1, "route": "/"}, 
+                    {"image":banner_1, "route": "/"}
+                ] }>
+            </BannerGroup>     
 
 
              <CategoryBannerCirculeGroup banners={ 

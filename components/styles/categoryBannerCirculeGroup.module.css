@@ -25,7 +25,7 @@
 
     margin: 0 auto;
     
-    margin-bottom: 12px;
+    margin-bottom: 0.75rem;
 
 }
 
@@ -33,9 +33,9 @@
 {
     display: flex;
 
-    width: 980px;
+    width: 61.25rem;
 
-    height: 295px;
+    height: 18.438rem;
     
     flex-direction: row;
 
@@ -52,7 +52,7 @@
 
 .title
 {
-    font-size: 20px;
+    font-size: 1.25rem;
 
     margin: 0;
 
@@ -71,22 +71,22 @@
 
     justify-content: center;
 
-    margin: 12px auto;
+    margin: 0.75rem auto;
 }
 
 .list_index_element
 {
     display:  flex;
     
-    margin: 24px 16px;
+    margin: 1.5rem 1rem;
 
-    padding: 8px 16px;
+    padding: .5rem 1rem;
     
     align-items: center;
 
     justify-content: center;
 
-    border-radius: 75px;
+    border-radius: 4.688rem;
 
     background-color: black;
 
@@ -103,7 +103,7 @@
 {
     background-color: #fff;
     
-    border: 4px solid #333c;
+    border: 0.25rem solid #333c;
 
     transition-duration: 1s ease;
 }

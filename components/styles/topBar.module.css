@@ -29,7 +29,7 @@
 
     font-size: 36px;
 
-    margin-left: 86px;
+    margin-left: 5.375rem;
 
     text-decoration: none;
 }
@@ -38,9 +38,9 @@
 {
     margin: 0;
 
-    width: 480px;
+    width: 30rem;
 
-    height: 45px;
+    height: 2.813rem;
 
     display: flex;
 
@@ -57,11 +57,11 @@
 
 .textInput
 {
-    width: 385px;
+    width: 24.063rem;
 
-    height: 34px;
+    height: 2.125rem;
 
-    margin-left: 15px;
+    margin-left: 0.938rem;
 
     font-size: 18px;
 
@@ -80,9 +80,9 @@
 {
     display: flex;
 
-    width: 45px;
+    width: 2.813rem;
 
-    height: 45px;
+    height: 2.813rem;
 
     align-items: center;
 
@@ -95,11 +95,11 @@
 
 .menuButton
 {
-    width: 54px;
+    width: 3.375rem;
 
-    height: 54px;
+    height: 3.375rem;
     
-    margin-left: 15px;
+    margin-left: 0.938rem;
 
     align-items: center;
 
@@ -112,13 +112,13 @@
 
 .wishlistButton
 {
-    width: 24px;
+    width: 1.5rem;
 
-    height: 24px;
+    height: 1.5rem;
 
     align-items: center;
 
-    margin: 0 12px;
+    margin: 0 0.75rem;
 
     justify-content: center;
 
@@ -132,7 +132,7 @@
 .loginButton
 {
 
-    width: 95px;
+    width: 5.938rem;
 
     display: flex;
 
@@ -148,7 +148,7 @@
 
     flex-direction: row;
 
-    margin: 0 8px;
+    margin: 0 .5rem;
 
     background-color: #0000;
 
@@ -159,11 +159,11 @@
 
 .cartButton
 {
-    width: 24px;
+    width: 1.5rem;
 
-    height: 24px;
+    height: 1.5rem;
     
-    margin: 0 24px 0 0;
+    margin: 0 1.5rem 0 0;
 
     align-items: center;
 

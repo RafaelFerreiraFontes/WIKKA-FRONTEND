@@ -16,25 +16,3 @@
     grid-template-columns: auto auto auto auto;
 }
 
-.grid_item
-{
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    background-color: #c5c5c5;
-
-    border: 1px solid #333c;
-
-    margin: 75px;
-    
-    width: 160px;
-
-    height: 160px;
-
-    font-size: 30px;
-
-    text-align: center;   
-}
