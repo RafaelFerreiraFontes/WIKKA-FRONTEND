@@ -5,22 +5,46 @@
   "main": "index.js",
   "dependencies": {
     "@svgr/webpack": "^5.5.0",
-    "next": "^11.0.1",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
+    "@types/react": "18.0.1",
+    "@zeit/next-sass": "^1.0.1",
+    "next": "12",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0",
     "react-spring": "^9.2.4",
-    "reactstrap": "^8.9.0"
+    "reactstrap": "^8.9.0",
+    "sass": "^1.52.2",
+    "typescript": "^4.7.3"
   },
   "devDependencies": {
+    "@types/node": "^17.0.40",
+    "@types/react": "18.0.1",
+    "@typescript-eslint/eslint-plugin": "^5.27.0",
+    "@typescript-eslint/parser": "^5.27.0",
     "eslint": "^7.30.0",
+    "eslint-config-next": "12.1.6",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-config-react-app": "^7.0.1",
+    "eslint-import-resolver-typescript": "^2.7.1",
+    "eslint-loader": "^4.0.2",
+    "eslint-plugin-flowtype": "^8.0.3",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
     "eslint-plugin-next": "0.0.0",
-    "eslint-plugin-react": "^7.24.0"
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.30.0",
+    "eslint-plugin-react-hooks": "^4.5.0",
+    "prettier": "^2.6.2",
+    "prettier-eslint": "^15.0.1",
+    "prettier-eslint-cli": "^6.0.1",
+    "typescript": "^4.7.3"
   },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "eslint ./components/** ./pages/** -c .eslintrc --ext ts,tsx,js,jsx --color --no-error-on-unmatched-pattern",
+    "format": "prettier --write \"components/**/*.{ts,tsx,scss,css,json}\" \"pages/**/*.{ts,tsx,scss,css,json}\"",
+    "isready": "yarn run format && yarn run lint && yarn run build"
   },
   "author": "Rafael Ferreira Fontes",
   "license": "ISC"
