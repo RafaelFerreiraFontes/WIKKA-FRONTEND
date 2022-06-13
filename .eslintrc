@@ -47,6 +47,9 @@
       "error",
       {
         "allowForLoopAfterthoughts": true
+      },
+      {
+        "extends": ["eslint:recommended", "next"]
       }
     ],
     "react/jsx-key": "error",

@@ -1,0 +1,111 @@
+.top-bar-container {
+    width: 100vw;
+    background-color: $color-black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    position: fixed;
+    top: 0;
+    z-index: $zLevel1;
+
+    .top-bar {
+        background-color: transparent;
+        width: 100%;
+        border-bottom: 1px solid $color-gray1;
+        display: flex;
+        height: 100%;
+        flex-direction: row;
+        justify-content: space-between;
+        margin: 0 auto;
+        max-width: pixelToRem(1920);
+
+        .top-bar__left {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: center;
+            margin-left: pixelToRem(16);
+
+            .top-bar__left__logo {
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-start;
+                align-items: center;
+                margin-right: pixelToRem(16);
+                font-size: pixelToRem(24);
+                font-weight: bold;
+                color: $color-black;
+                text-decoration: none;
+                cursor: pointer;
+
+                img {
+                    width: pixelToRem(206);
+                    height: pixelToRem(71);
+                }
+            }
+        }
+
+        .top-bar__center {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            flex: 1;
+            margin-left: pixelToRem(16);
+        }
+
+        .top-bar__right {
+            display: flex;
+            width: min-content;
+            flex-direction: row;
+            justify-content: flex-end;
+            align-items: center;
+            margin-right: pixelToRem(16);
+
+            .top-bar__right__actions {
+                display: flex;
+                width: auto;
+                margin: 0 pixelToRem(24);
+                flex-direction: row;
+                justify-content: flex-end;
+                align-items: center;
+                font-size: pixelToRem(24);
+                font-weight: bold;
+                color: $color-black;
+                text-decoration: none;
+                cursor: pointer;
+
+                .top-bar__right__actions__item {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: pixelToRem(24);
+                    font-weight: bold;
+                    color: $color-black;
+                    text-decoration: none;
+                    margin: 0 20px;
+                    cursor: pointer;
+
+                    &:not(:last-child) {
+                        &::after {
+                            margin-left: 40px;
+                            content: " ";
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            width: 0;
+                            height: 13px;
+                            border: 1px solid #fff;
+                        }
+                    }
+
+                    img {
+                        width: auto;
+                        height: auto;
+                    }
+                }
+            }
+        }
+    }
+}
