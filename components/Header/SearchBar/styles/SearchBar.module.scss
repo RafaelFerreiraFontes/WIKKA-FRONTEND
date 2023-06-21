@@ -1,30 +1,50 @@
 .search-bar {
     display: flex;
+
     width: pixelToRem(264);
+    
     height: pixelToRem(32);
+    
     flex-direction: row;
+    
     justify-content: center;
+    
     align-items: center;
+    
     outline: none;
+    
     background: $color-white;
-    border: 1px solid $color-gray2;
-    border-radius: 5px;
+    
     position: relative;
 
     input {
         padding-left: pixelToRem(12);
+    
         padding-right: pixelToRem(32);
+    
         margin: 0 auto;
+    
         font-family: $font-roboto;
+    
         font-style: normal;
+    
         font-weight: 400;
+    
         font-size: 14px;
+    
+    
         line-height: 16px;
+    
         color: $color-black;
+    
         width: 100%;
+    
         height: 100%;
+    
         outline: none;
-        border: none;
+    
+        border: 1px solid $color-gray2;
+    
         border-radius: 5px;
     
         &::placeholder {
@@ -34,6 +54,24 @@
 
     div {
         position: absolute;
+    
         right: pixelToRem(11);
     }
+}
+
+.search-bar-closed-button
+{
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: pixelToRem(8);
+
+    width: pixelToRem(24);
+
+    height: pixelToRem(24);
+
+    border: 1px solid $color-gray2;
 }

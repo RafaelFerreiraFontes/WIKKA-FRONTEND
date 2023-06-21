@@ -1,0 +1,35 @@
+@mixin mediaQuery($width, $type: min) {
+    @if map-has-key($screen-breakpoints, $width) {
+        $width: map_get($screen-breakpoints, $width);
+
+        @if $type == min {
+            @media only screen and (min-width: $width) {
+                @content;
+            }
+        } @else {
+            @media only screen and (max-width: $width) {
+                @content;
+            }
+        }
+    }
+}
+
+@function pixelToRem($pixel) {
+    $rem: $pixel / 16;
+
+    @return #{$rem}rem;
+}
+
+@mixin mediaQueryRange($min, $max) {
+    @if (map-has-key($screen-breakpoints, $min) and map-has-key($screen-breakpoints, $max)) {
+        $width_max: map_get($screen-breakpoints, $max);
+
+        $width_min: map_get($screen-breakpoints, $min);
+
+        $width_max: $width_max - 1px;
+
+        @media only screen and (min-width: $width_min) and (max-width: $width_max) {
+            @content;
+        }
+    }
+}

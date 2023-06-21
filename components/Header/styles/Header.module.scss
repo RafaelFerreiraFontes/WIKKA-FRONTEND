@@ -1,5 +1,49 @@
 .header {
-    margin: 0 - (pixelToRem(8));
+    margin: pixelToRem(-8) auto;
+
+    height: pixelToRem(175);
 
     width: 100vw;
+
+    // max-width: pixelToRem(1280);
+
+    background: rgba(250, 250, 250, 0.9);
+
+    box-shadow: 0px 4px 8px rgba(205, 211, 221, 0.3);
+
+    position: fixed;
+
+    top: 0;
+
+    z-index: $zLevel8;
+
+    .header-container {
+        width: 100%;
+        
+        height: 100%;
+
+        margin: 0 auto;
+
+        max-width: pixelToRem(1920);
+
+        display: flex;
+
+        flex-direction: column;
+    
+        align-content: center;
+    
+        align-items: center;
+    
+        justify-content: center;
+    
+        z-index: $zLevel1;
+
+        .header-line {
+            height: pixelToRem(1);
+
+            width: 100vw;
+
+            border-bottom: 1px solid $color-gray2;
+        }
+    }
 }

@@ -1,0 +1,17 @@
+.item-container
+{
+    .item-title-container{
+        .item-title-link
+        {
+            text-decoration: none;
+            
+            .item-title {
+                color: $color-black;
+            }
+        }
+    }
+
+    .item-content-container {
+        color: $color-black;
+    }
+}

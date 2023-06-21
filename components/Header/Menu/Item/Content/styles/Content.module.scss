@@ -1,0 +1,117 @@
+.content-container {
+    width: 100%;
+
+    top: 100%;
+
+    left: 0;
+
+    background: $color-white2;
+
+    padding-block: pixelToRem(40);
+
+    position: absolute;
+
+    .content-column-container {
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        width: 100%;
+
+        height: 100%;
+
+        max-width: pixelToRem(996);
+
+        margin: 0 auto;
+    
+        .content-column-list-container {
+            display: flex;
+                
+            flex-direction: column;
+
+            align-items: center;
+
+            justify-content: center;
+
+            width: inherit;
+
+            height: pixelToRem(320);
+
+            .content-title-container {
+                width: 100%;
+
+                padding-bottom: pixelToRem(16);
+    
+                border-bottom: 1px solid $color-gray3;
+                
+                .content-title {
+                    font-family: $font-nova;
+                    
+                    font-style: normal;
+                    
+                    font-weight: 400;
+                    
+                    font-size: 14px;
+                    
+                    line-height: 17px;
+    
+                    text-transform: uppercase;
+                    
+                    color: $color-gray5;
+    
+                }
+            }
+
+            .content-column-list {
+                display: flex;
+
+                width: 100%;
+
+                height: pixelToRem(267);
+
+                flex-direction: column;
+
+                align-items: flex-start;
+
+                justify-content: space-around;
+
+                flex-wrap: wrap;
+
+                margin-top: pixelToRem(20);
+
+                .content-column-item {
+                    list-style: none;
+
+                    flex-basis: 1%;
+
+                    margin-bottom: pixelToRem(10);
+
+                    .content-column-item-link {
+                        font-family: $font-karla;
+                        
+                        font-style: normal;
+                        
+                        font-weight: 300;
+                        
+                        font-size: 14px;
+                        
+                        line-height: 16px;
+
+                        color: $color-gray5;
+                        
+                        text-decoration: none;
+                    }
+                }
+            }
+        }
+
+        .content-column-image-container {
+
+            .content-column-image {
+                color: $color-black;
+            }
+        }
+    }
+}
