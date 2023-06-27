@@ -1,11 +1,11 @@
 .header {
-    margin: pixelToRem(-8) auto;
+    margin: 0 auto;
 
-    height: pixelToRem(175);
+    height: pixelToRem(128);
 
     width: 100vw;
 
-    // max-width: pixelToRem(1280);
+    max-height: pixelToRem(160);
 
     background: rgba(250, 250, 250, 0.9);
 

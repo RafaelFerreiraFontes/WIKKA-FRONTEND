@@ -1,8 +1,12 @@
+import { useState } from 'react';
 import ButtonIcon from '../../ButtonIcon';
 import SearchBar from '../SearchBar';
+import Minicart from './FuctionsComponents/Minicart/Minicart';
 import styles from './styles/TopBar.module.scss';
 
 export default function TopBar() {
+  const [ isOpenMinicart, setIsOpenMinicart ] = useState(false);
+
   return (
     <>
       <div className={styles['top-bar-container']}>
@@ -56,7 +60,9 @@ export default function TopBar() {
 
               <div className={styles['top-bar__right__actions__item']}>
                 <div className={styles['top-bar_minicart_button']}>
-                  <ButtonIcon icon="/assets/svgs/minicart.svg" alt="Minicart" parentStyles={styles} />
+                  <ButtonIcon icon="/assets/svgs/minicart.svg" alt="Minicart" parentStyles={styles} onClick={() => {
+                    setIsOpenMinicart(true);
+                  }} />
                 </div>
               </div>
             </div>
@@ -89,6 +95,11 @@ export default function TopBar() {
             <SearchBar parentStyles={styles} />
           </div>
         </div>
+          {
+            isOpenMinicart && (
+              <Minicart closeMinicart={setIsOpenMinicart}/>
+            )
+          }
       </div>
     </>
   );

@@ -1,0 +1,420 @@
+.minicart-container {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: flex-end;
+
+    top: 0;
+
+    bottom: 0;
+
+    left: 0;
+
+    right: 0;
+
+    margin: 0 auto;
+
+    position: absolute;
+
+    width: 100vw;
+
+    height: 100vh;
+
+    z-index: $zLevel7;
+
+    background: rgba(56, 56, 56, 0.6);
+
+    backdrop-filter: blur(8px);
+
+    .minicart-body {
+        display: flex;
+
+        align-items: center;
+
+        justify-content: flex-start;
+
+        flex-direction: column;
+
+        height: 100%;
+
+        background: $color-white;
+
+        z-index: $zLevel8;
+
+        overflow-x: hidden;
+
+        .minicart-header {
+            display: flex;
+
+            width: 100%;
+
+            height: pixelToRem(80);
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-bottom: 1px solid $color-black2;
+
+            .minicart-header-title-container {
+                display: flex;
+
+                align-items: center;
+
+                justify-content: flex-start;
+
+                width: 100%;
+
+                height: 100%;
+
+                margin-left: 20px;
+
+                img {
+                    margin-bottom: 4px;
+                }
+
+                .minicart-header-title {
+                    font-family: $font-nova;
+
+                    font-style: normal;
+
+                    font-weight: 400;
+
+                    font-size: 16px;
+
+                    line-height: 19px;
+
+                    text-align: center;
+
+                    text-transform: uppercase;
+
+                    color: $color-black2;
+
+                    margin-left: pixelToRem(11);
+                }
+            }
+
+            .minicart-header-close-button-container {
+                display: flex;
+
+                align-items: center;
+
+                justify-content: flex-end;
+
+                width: 100%;
+
+                height: 100%;
+
+                margin-right: 20px;
+
+                img {
+                    width: 20px;
+
+                    height: 20px;
+
+                    cursor: pointer;
+                }
+            }
+        }
+
+        .minicart-content {
+            display: flex;
+
+            align-items: center;
+
+            justify-content: flex-start;
+
+            flex-direction: column;
+
+            width: 100%;
+
+            height: 100%;
+
+            overflow-y: auto;
+
+            overflow-x: hidden;
+
+            &::-webkit-scrollbar {
+                width: 8px;
+            }
+
+            &::-webkit-scrollbar-track {
+                width: 4px;
+                border-radius: 4px;
+                background: $color-white2;
+            }
+
+            &::-webkit-scrollbar-thumb {
+                width: 4px;
+                border-radius: 4px;
+                background: $color-black2;
+            }
+
+            .minicart-empty-container {
+                width: 100%;
+
+                display: flex;
+
+                align-items: center;
+
+                justify-content: center;
+
+                flex: 1;
+
+                align-self: center;
+
+                .minicart-empyt-body {
+                    display: flex;
+
+                    align-items: center;
+
+                    justify-content: center;
+
+                    flex-direction: column;
+
+                    width: 100%;
+
+                    height: pixelToRem(172);
+
+                    .minicart-empty-message-container {
+                        width: 100%;
+
+                        height: 75%;
+
+                        display: flex;
+
+                        align-items: center;
+
+                        justify-content: center;
+
+                        align-content: space-between;
+
+                        flex-direction: column;
+
+                        img {
+                            width: 64px;
+
+                            height: 64px;
+                        }
+
+                        .minicart-empty-message {
+                            color: $color-black2;
+
+                            text-align: center;
+
+                            font-size: 16px;
+
+                            font-family: Proxima Nova;
+                        }
+                    }
+
+                    .minicart-empty-button-container {
+                        display: flex;
+
+                        align-items: center;
+
+                        justify-content: center;
+
+                        width: 100%;
+
+                        height: 25%;
+
+                        .minicart-empty-button {
+                            display: flex;
+
+                            width: 335px;
+
+                            height: 48px;
+
+                            padding: 12px 24px;
+
+                            justify-content: center;
+
+                            align-items: center;
+
+                            gap: 10px;
+
+                            flex-shrink: 0;
+
+                            border: none;
+
+                            outline: none;
+
+                            color: $color-gray4;
+
+                            text-align: center;
+
+                            border-radius: 4px;
+
+                            font-size: 14px;
+
+                            font-family: Proxima Nova;
+
+                            line-height: 16px;
+
+                            letter-spacing: 1.12px;
+
+                            cursor: pointer;
+
+                            text-transform: uppercase;
+
+                            background: $color-white2;
+                        }
+                    }
+                }
+            }
+        }
+
+        .minicart-footer {
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            flex-direction: column;
+
+            width: 100%;
+
+            height: pixelToRem(191);
+
+            padding-bottom: pixelToRem(10);
+
+            background: $color-white;
+
+            box-shadow: 0px -4px 8px 0px rgba(205, 211, 221, 0.3);
+
+            .minicart-footer-total-container {
+                display: flex;
+
+                align-items: center;
+
+                justify-content: space-between;
+
+                width: calc(100% - pixelToRem(40));
+
+                height: 50%;
+
+                margin: 0 auto;
+
+                .minicart-footer-total-title {
+                    color: $color-black;
+
+                    font-size: 16px;
+
+                    font-family: $font-nova;
+
+                    text-transform: uppercase;
+                }
+
+                .minicart-footer-total-value
+                {
+
+                    color: $color-black;
+
+                    text-align: right;
+
+                    font-size: 16px;
+
+                    font-family: $font-nova;
+
+                    text-transform: uppercase;
+                }
+            }
+
+            .minicart-footer-button-container {
+                display: flex;
+
+                align-items: center;
+
+                justify-content: center;
+
+                flex-direction: column;
+
+                width: 100%;
+
+                .minicart-footer-button {
+                    display: flex;
+
+                    width: pixelToRem(335);
+
+                    height: pixelToRem(40);
+
+                    padding: 12px;
+
+                    justify-content: center;
+
+                    align-items: center;
+
+                    gap: 10px;
+
+                    border-radius: 4px;
+
+                    flex-shrink: 0;
+
+                    border: none;
+
+                    outline: none;
+
+                    cursor: pointer;
+
+                    &:first-child {
+                        color: $color-gray4;
+
+                        text-align: center;
+
+                        font-size: 14px;
+
+                        font-family: Proxima Nova;
+
+                        line-height: 16px;
+
+                        letter-spacing: 1.12px;
+
+                        text-transform: uppercase;
+
+                        background: $color-white2;
+
+                        margin-bottom: pixelToRem(10);
+                    }
+
+                    background: $color-black;
+
+                    color: $color-white;
+
+                    text-align: center;
+                    
+                    font-size: 14px;
+                    
+                    font-family: Proxima Nova;
+                    
+                    line-height: 16px;
+                    
+                    letter-spacing: 1.12px;
+                    
+                    text-transform: uppercase;
+                }
+            }
+        }
+    }
+}
+
+@keyframes fade {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+
+@keyframes slideOut {
+    from {
+        transform: translateY(0%);
+    }
+    to {
+        transform: translateY(100%);
+    }
+}

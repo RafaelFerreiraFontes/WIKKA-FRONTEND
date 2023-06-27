@@ -12,7 +12,7 @@
     "mini-css-extract-plugin": "^2.7.6",
     "next": "12",
     "react": "^18.1.0",
-    "react-dom": "^18.1.0",
+    "react-dom": "^18.2.0",
     "react-slick": "^0.29.0",
     "react-spring": "^9.2.4",
     "reactstrap": "^8.9.0",

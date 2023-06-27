@@ -1,15 +1,10 @@
 .content-container {
+
     width: 100%;
-
-    top: 100%;
-
-    left: 0;
 
     background: $color-white2;
 
-    padding-block: pixelToRem(40);
-
-    position: absolute;
+    max-height: pixelToRem(400);
 
     .content-column-container {
         display: flex;
@@ -59,7 +54,7 @@
     
                     text-transform: uppercase;
                     
-                    color: $color-gray5;
+                    color: $color-black2;
     
                 }
             }
@@ -99,9 +94,32 @@
                         
                         line-height: 16px;
 
-                        color: $color-gray5;
+                        color: $color-black2;
                         
                         text-decoration: none;
+                    }
+
+                    .content-column-item-see-more-link
+                    {
+                        font-family: $font-nova;
+                     
+                        font-style: normal;
+                     
+                        font-weight: 400;
+                     
+                        font-size: 12px;
+                     
+                        line-height: 16px;
+
+                        letter-spacing: 0.08em;
+                     
+                        text-transform: uppercase;
+
+                        color: $color-black2;
+
+                        img {
+                            margin-left: pixelToRem(8);
+                        }
                     }
                 }
             }
