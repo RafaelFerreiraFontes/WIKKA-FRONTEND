@@ -1,4 +1,3 @@
-import { text } from 'stream/consumers';
 import styles from './styles/MinicartItem.module.scss';
 import Link from 'next/link';
 import { Dispatch, useEffect, useState } from 'react';
@@ -25,7 +24,7 @@ export default function MinicartItem({
         else if (quantitySelected != quantity) {
             updateList(productList.map((product) => {
                 if (product.id === id) {
-                    var newProduct = product;
+                    let newProduct = product;
                     
                     newProduct.quantity = quantitySelected;
 
@@ -63,13 +62,13 @@ export default function MinicartItem({
                                 {
                                     isSale ?
                                         <div className={styles["minicart-item-sale-container"]}>
-                                            <span className={styles["minicart-item-sale-text"]}>R$ {salePrice.toLocaleString('pt-br', { style: 'currency', currency: 'BRL', minimumFractionDigits: 2 })}</span>
+                                            <span className={styles["minicart-item-sale-text"]}> {salePrice.toLocaleString('pt-br', { style: 'currency', currency: 'BRL', minimumFractionDigits: 2 })}</span>
                                         </div>
                                         :
                                         <></>
                                 }
 
-                                <span className={styles["minicart-item-price"]}>R$ {price.toLocaleString('pt-br', { style: 'currency', currency: 'BRL', minimumFractionDigits: 2 })}</span>
+                                <span className={styles["minicart-item-price"]}>{price.toLocaleString('pt-br', { style: 'currency', currency: 'BRL', minimumFractionDigits: 2 })}</span>
                             </div>
                             <div className={styles["minicart-item-info-column"]}>
                                 <span className={styles["minicart-item-button-remove"]} onClick={(e: React.MouseEvent<HTMLDivElement>) => {

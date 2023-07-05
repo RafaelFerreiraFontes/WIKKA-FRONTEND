@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import styles from './styles/Minicart.module.scss';
 import MinicartItem from './MinicartItem';
-import { animated } from 'react-spring';
 
 export type ProductCart = {
     id: number | string;
@@ -63,51 +62,17 @@ const productSample = [
 ] as ProductCart[];
 
 export default function Minicart({ closeMinicart, productsInCart = [] }: Props) {
-    const [isCreated, setIsCreated] = useState(true);
-    const [isOpenMinicart, setIsOpenMinicart] = useState(false);
-    const [starEffect, setStarEffect] = useState(true);
-    const [width, setWidth] = useState(0);
     const [closeFooter, setCloseFooter] = useState(false);
     const [products, setProducts] = useState<ProductCart[]>(productSample || productsInCart);
     const [totalPrice, setTotalPrice] = useState(0);
-    const maxWidth = 375;
-
-    useEffect(() => {
-        if (starEffect) {
-            const widthPass = isCreated ? 5 : -5;
-
-            if (isCreated ? width <= maxWidth : width >= 0) {
-
-                setTimeout(() => {
-                    setWidth(width + widthPass);
-
-                }, 5);
-            }
-            else {
-                setStarEffect(false);
-
-                setWidth(isCreated ? maxWidth : 0);
-
-                setIsOpenMinicart(isCreated ? true : false);
-
-                setIsCreated(false);
-
-            }
-
-        }
-        else {
-            if (!isCreated && !isOpenMinicart) {
-                closeMinicart(false);
-            }
-        }
-
-    })
+    const [animationDirection, setAnimationDirection] = useState(`reverse`);
+    const [disableAnimation, setDisableAnimation] = useState(false);
 
     useEffect(() => {
         if (products?.length == 0) {
             setTimeout(() => {
                 setCloseFooter(true);
-            }, 500);
+            }, 750);
         }
         else {
             setTotalPrice(products?.reduce((acc, product) => {
@@ -117,25 +82,33 @@ export default function Minicart({ closeMinicart, productsInCart = [] }: Props) 
         }
     }, [products]);
 
-
+    useEffect(() => {
+        if (!disableAnimation) {
+            setTimeout(() => {
+                setDisableAnimation(true);
+            }, 750);
+        }
+        else {
+            setDisableAnimation(false);
+        }
+    }, [animationDirection]);
 
     return (
-        <div className={styles["minicart-container"]} style={
-            {
-                animation: starEffect ? isCreated ? `${styles["fade"]} 0.280s ease-in-out forwards` : `${styles["fade"]} 0.180s ease-in-out reverse forwards` : ''
-            }
-        } onClick={(e: React.MouseEvent<HTMLDivElement>) => {
-            setIsOpenMinicart(false)
-            setStarEffect(true)
-
+        <div className={styles["minicart-container"]} onClick={(e: React.MouseEvent<HTMLDivElement>) => {
+            setAnimationDirection("normal");
+            setTimeout(() => {
+                closeMinicart(false);
+            }, 500)
         }}>
             <div className={styles["minicart-body"]} style={{
-                width: `${width}px`
-            }} onClick={(e: React.MouseEvent<HTMLDivElement>) => {
-                e.preventDefault()
-                e.stopPropagation()
-            }} >
-                <div className={styles["minicart-header"]}>
+                animationName: !disableAnimation ? `${styles["fade"]}` : '',
+                animationDuration: '0.5s',
+                animationIterationCount: 1,
+                animationDirection: animationDirection,
+                animationFillMode: 'none',
+                overflowY: closeFooter || products?.length == 0 ? 'hidden' : 'visible',
+            }} onClick={(e: React.MouseEvent<HTMLDivElement>) => { e.preventDefault(); e.stopPropagation(); }} >
+                <div className={`${styles["minicart-header"]} ${products?.length == 0 ? styles["minicart-empty-header"] : ''}`}>
                     <div className={styles["minicart-header-title-container"]}>
                         <img src='/assets/svgs/minicart.svg' alt="Minicart Icon" />
 
@@ -143,13 +116,19 @@ export default function Minicart({ closeMinicart, productsInCart = [] }: Props) 
                     </div>
                     <div className={styles["minicart-header-close-button-container"]} >
                         <img src='/assets/svgs/cross.svg' alt="Close Icon" onClickCapture={(e: React.MouseEvent<HTMLDivElement>) => {
-                            setIsOpenMinicart(false)
-                            setStarEffect(true)
+                            setAnimationDirection("normal");
+                            setTimeout(() => {
+                                closeMinicart(false);
+                            }, 500)
                         }} />
                     </div>
                 </div>
 
-                <div className={styles["minicart-content"]}>
+                <div className={styles["minicart-content"]} style={
+                    {
+                        flex: products?.length == 0 ? 1 : ''
+                    }
+                }>
                     {
                         products?.length == 0 ?
                             (
@@ -162,8 +141,10 @@ export default function Minicart({ closeMinicart, productsInCart = [] }: Props) 
 
                                         <div className={styles["minicart-empty-button-container"]}>
                                             <button className={styles["minicart-empty-button"]} onClickCapture={(e: React.MouseEvent<HTMLButtonElement>) => {
-                                                setIsOpenMinicart(false)
-                                                setStarEffect(true)
+                                                setAnimationDirection("normal");
+                                                setTimeout(() => {
+                                                    closeMinicart(false);
+                                                }, 500)
                                             }} >Continuar Comprando</button>
                                         </div>
                                     </div>
@@ -180,8 +161,14 @@ export default function Minicart({ closeMinicart, productsInCart = [] }: Props) 
                 </div>
 
                 <div className={styles["minicart-footer"]} style={{
-                    animation: products?.length == 0 ? `${styles["slideOut"]} 0.5s linear` : '',
-                    display: closeFooter ? 'none' : 'flex'
+                    animationName: products?.length == 0  ? `${styles["slideOut"]}` : '',
+                    animationDuration: '0.75s',
+                    animationIterationCount: 1,
+                    animationDirection: "normal",
+                    animationFillMode: 'none',
+                    overflowY: products?.length == 0 ? 'hidden' : 'visible',
+                    height: closeFooter ? '0px' : '191px',
+                    paddingBottom: closeFooter ? '0px' : '10px',
                 }}>
                     <div className={styles["minicart-footer-total-container"]}>
                         <span className={styles["minicart-footer-total-title"]}>Total</span>
@@ -193,15 +180,19 @@ export default function Minicart({ closeMinicart, productsInCart = [] }: Props) 
 
                     <div className={styles["minicart-footer-button-container"]}>
                         <button className={styles["minicart-footer-button"]} onClickCapture={(e: React.MouseEvent<HTMLButtonElement>) => {
-                            setIsOpenMinicart(false)
-                            setStarEffect(true)
+                            setAnimationDirection("normal");
+                            setTimeout(() => {
+                                closeMinicart(false);
+                            }, 500)
                         }
                         }>Continuar Comprando</button>
-                        
+
 
                         <button className={styles["minicart-footer-button"]} onClickCapture={(e: React.MouseEvent<HTMLButtonElement>) => {
-                            setIsOpenMinicart(false)
-                            setStarEffect(true)
+                            setAnimationDirection("normal");
+                            setTimeout(() => {
+                                closeMinicart(false);
+                            }, 500)
                         }
                         }>Finalizar Compra</button>
 

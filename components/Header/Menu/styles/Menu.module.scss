@@ -1,4 +1,4 @@
-.menu-container
+.menu-container, .menu-mobile-container
 {
     display: flex;
 
@@ -51,6 +51,44 @@
         
             list-style: none;
         
+        }
+    }
+}
+
+.menu-mobile-container
+{
+    width: 100%;
+
+    height: calc(100% - pixelToRem(225));
+
+    justify-content: flex-start;
+
+    align-items: flex-start;
+
+    background: transparent;
+
+    overflow-y: auto;
+
+    border: none;
+    
+    .menu-category-list
+    {   
+        background: $color-white;
+
+        flex-direction: column;
+
+        .menu-category-item {
+            width: 100%;
+
+            align-items: flex-start;
+
+            justify-content: flex-start;
+        
+            margin-bottom: pixelToRem(17);
+
+            height: auto;
+
+            border-bottom: 1px solid $color-gray3;
         }
     }
 }
