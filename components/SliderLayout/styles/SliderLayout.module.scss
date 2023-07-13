@@ -1,0 +1,162 @@
+.slider-container {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  flex-direction: column;
+
+  width: 100%;
+
+  position: relative;
+
+  .slider-carousel-container {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    position: relative;
+
+    overflow-x: hidden;
+
+    .slider-prev-button-container {
+        left: 40px;
+    }
+
+    .slider-next-button-container {
+        right: 40px;
+    }
+
+    .slider-prev-button-container,
+    .slider-next-button-container {
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        width: pixelToRem(40);
+
+        height: pixelToRem(40);
+
+        position: absolute;
+
+        z-index: $zLevel3;
+
+        .slider-button {
+            display: flex;
+
+            align-items: center;
+    
+            justify-content: center;
+    
+            width: pixelToRem(40);
+    
+            height: pixelToRem(40);
+    
+            border-radius: 4px;
+    
+            background: $color-white;
+    
+            opacity: 0.8;
+    
+            border: none;
+
+            outline: none;
+        }
+    }
+
+    .slider-carousel {
+        width: 100%;
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: flex-start;
+
+      .slider-carousel-item {
+        width: 100%;
+
+        height: 100%;
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+      }
+    }
+  }
+
+  .slider-pagination-container {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    position: absolute;
+
+    bottom: 24px;
+
+    .slider-pagination {
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      background: $color-white;
+
+      opacity: 0.8;
+
+      max-height: pixelToRem(24);
+
+      border-radius: pixelToRem(4);
+
+      padding-block: pixelToRem(9);
+
+      padding-inline: pixelToRem(10);
+
+      .slider-pagination-item {
+        display: flex;
+
+        justify-content: center;
+
+        align-items: center;
+
+        content: " ";
+
+        border-radius: 6px;
+
+        width: pixelToRem(6);
+
+        height: pixelToRem(6);
+
+        background: $color-black2;
+
+        transition: all 0.3s ease-in-out;
+
+        &:not(:first-child) {
+          margin-left: 15px;
+        }
+      }
+
+      .slider-carousel-item-active {
+        background: #cdd3dd;
+
+        border-radius: 12px;
+
+        max-height: 12px;
+
+        max-width: 12px;
+
+        border: 6px solid $color-black2;
+      }
+    }
+  }
+}

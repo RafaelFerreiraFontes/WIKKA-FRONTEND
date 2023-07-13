@@ -47,42 +47,41 @@ export default function Menu() {
 
     return (
         <>
-            {
-                !isMobile ? (
-                    <div className={styles["menu-container"]}>
-                        <ul className={styles["menu-category-list"]}>
-                            {
-                                categoryList.map(({ title, link }, i) => (
-                                    <li key={i} className={styles["menu-category-item"]}>
 
-                                        {
-                                            (i == 0 ? <Item title={title} mainCategoryLink={link} categoryList={["Subcategoria 1", "Subcategoria 2", "Subcategoria 3", "Subcategoria 4", "Subcategoria 5", "Subcategoria 6", "Subcategoria 7", "Subcategoria 8", "Subcategoria 9", "Subcategoria 10", "Subcategoria 11", "Subcategoria 12", "Subcategoria 13", "Subcategoria 14", "Subcategoria 15", "Subcategoria 16", "Subcategoria 17", "Subcategoria 18", "Subcategoria 19", "Subcategoria 20", "Subcategoria 21", "Subcategoria 22", "Subcategoria 23", "Subcategoria 24"]} categoryLinkList={["#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#"]} categoryImage="https://picsum.photos/200" /> :
-                                                <Item title={title} mainCategoryLink={link} />)
-                                        }
-                                    </li>
-                                ))
-                            }
-                        </ul>
-                    </div>
-                )
-                    : (
-                        <div className={styles["menu-mobile-container"]}>
-                            <ul className={styles["menu-category-list"]}>
+            <div className={styles["menu-container"]} style={{
+                    display: isMobile ? "none" : "flex"
+                }}>
+                <ul className={styles["menu-category-list"]}>
+                    {
+                        categoryList.map(({ title, link }, i) => (
+                            <li key={i} className={styles["menu-category-item"]}>
+
                                 {
-                                    categoryList.map(({ title, link }, i) => (
-                                        <li key={i} className={styles["menu-category-item"]}>
-
-                                            {
-                                                (i >= 0 ? <Item title={title} mainCategoryLink={link} categoryList={["Subcategoria 1", "Subcategoria 2", "Subcategoria 3", "Subcategoria 4", "Subcategoria 5", "Subcategoria 6", "Subcategoria 7", "Subcategoria 8", "Subcategoria 9", "Subcategoria 10", "Subcategoria 11", "Subcategoria 12", "Subcategoria 13", "Subcategoria 14", "Subcategoria 15", "Subcategoria 16", "Subcategoria 17", "Subcategoria 18", "Subcategoria 19", "Subcategoria 20", "Subcategoria 21", "Subcategoria 22", "Subcategoria 23", "Subcategoria 24"]} categoryLinkList={["#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#"]} categoryImage="https://picsum.photos/200" /> :
-                                                    <Item title={title} mainCategoryLink={link} />)
-                                            }
-                                        </li>
-                                    ))
+                                    <Item title={title} mainCategoryLink={link} categoryList={["Subcategoria 1", "Subcategoria 2", "Subcategoria 3", "Subcategoria 4", "Subcategoria 5", "Subcategoria 6", "Subcategoria 7", "Subcategoria 8", "Subcategoria 9", "Subcategoria 10", "Subcategoria 11", "Subcategoria 12", "Subcategoria 13", "Subcategoria 14", "Subcategoria 15", "Subcategoria 16", "Subcategoria 17", "Subcategoria 18", "Subcategoria 19", "Subcategoria 20", "Subcategoria 21", "Subcategoria 22", "Subcategoria 23", "Subcategoria 24"]} categoryLinkList={["#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#"]} categoryImage="https://picsum.photos/200" />
                                 }
-                            </ul>
-                        </div>
-                    )
-            }
+                            </li>
+                        ))
+                    }
+                </ul>
+            </div>
+            <div className={styles["menu-mobile-container"]}
+                style={{
+                    display: isMobile ? "flex" : "none"
+                }}
+            >
+                <ul className={styles["menu-category-list"]}>
+                    {
+                        categoryList.map(({ title, link }, i) => (
+                            <li key={i} className={styles["menu-category-item"]}>
+
+                                {
+                                    <Item title={title} mainCategoryLink={link} categoryList={["Subcategoria 1", "Subcategoria 2", "Subcategoria 3", "Subcategoria 4", "Subcategoria 5", "Subcategoria 6", "Subcategoria 7", "Subcategoria 8", "Subcategoria 9", "Subcategoria 10", "Subcategoria 11", "Subcategoria 12", "Subcategoria 13", "Subcategoria 14", "Subcategoria 15", "Subcategoria 16", "Subcategoria 17", "Subcategoria 18", "Subcategoria 19", "Subcategoria 20", "Subcategoria 21", "Subcategoria 22", "Subcategoria 23", "Subcategoria 24"]} categoryLinkList={["#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#"]} categoryImage="https://picsum.photos/200" />
+                                }
+                            </li>
+                        ))
+                    }
+                </ul>
+            </div>
         </>
     );
 }

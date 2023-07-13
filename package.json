@@ -6,18 +6,14 @@
   "dependencies": {
     "@svgr/webpack": "^5.5.0",
     "@types/react": "18.0.1",
-    "@types/react-slick": "^0.23.10",
-    "@types/slick-carousel": "^1.6.37",
     "@zeit/next-sass": "^1.0.1",
     "mini-css-extract-plugin": "^2.7.6",
     "next": "12",
     "react": "^18.1.0",
     "react-dom": "^18.2.0",
-    "react-slick": "^0.29.0",
     "react-spring": "^9.2.4",
     "reactstrap": "^8.9.0",
     "sass": "^1.52.2",
-    "slick-carousel": "^1.8.1",
     "typescript": "^4.7.3"
   },
   "devDependencies": {
@@ -45,7 +41,7 @@
     "typescript": "^4.7.3"
   },
   "scripts": {
-    "dev": "next",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "eslint ./components/** ./pages/** -c .eslintrc --ext ts,tsx,js,jsx --color --no-error-on-unmatched-pattern",

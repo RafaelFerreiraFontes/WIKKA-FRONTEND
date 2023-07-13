@@ -3,6 +3,8 @@
 
     background: $color-white2;
 
+    overflow: hidden;
+
     .content-column-container {
         display: flex;
 
@@ -182,27 +184,4 @@
             }
         }
     }
-}
-
-
-@keyframes OpenContent 
-{ 
-    from { 
-        height: 0px; 
-    }  
-    
-    to { 
-        height: 100vh; 
-    } 
-}
-
-@keyframes CloseContent 
-{ 
-    from { 
-        height: 100vh; 
-    }  
-    
-    to { 
-        height: 0px; 
-    } 
 }
