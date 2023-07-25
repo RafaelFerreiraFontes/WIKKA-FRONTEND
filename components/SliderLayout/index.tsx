@@ -1,173 +1,370 @@
-import React, { useEffect, useState, useRef } from "react";
+import React from "react";
+
+import Slider from "react-slick";
+
 import styles from "./styles/SliderLayout.module.scss";
 
-interface Props {
-  showNavigationArrows?: boolean;
+type Responsive = {
+  breakpoint: number;
+  settings: {
+    accessibility?: boolean;
 
-  showPaginationDots?: boolean;
+    adaptiveHeight?: boolean;
+
+    appendArrows?: Element | JSX.Element | string;
+
+    appendDots?: Element | JSX.Element | string;
+
+    arrows?: boolean;
+
+    asNavFor?: Element | JSX.Element | string;
+
+    centerMode?: boolean;
+
+    centerPadding?: string;
+
+    cssEase?: string;
+
+    customPaging?: Function;
+
+    dots?: boolean;
+
+    dotsClass?: string;
+
+    draggable?: boolean;
+
+    easing?: string;
+
+    edgeFriction?: number;
+
+    fade?: boolean;
+
+    focusOnSelect?: boolean;
+
+    focusOnChange?: boolean;
+
+    infinite?: boolean;
+
+    initialSlide?: number;
+
+    lazyLoad?: "ondemand" | "progressive";
+
+    mobileFirst?: boolean;
+
+    nextArrow?: Element | JSX.Element | string;
+
+    pauseOnDotsHover?: boolean;
+
+    pauseOnFocus?: boolean;
+
+    pauseOnHover?: boolean;
+
+    prevArrow?: Element | JSX.Element | string;
+
+    respondTo?: "window" | "slider";
+
+    rows?: number;
+
+    rtl?: boolean;
+
+    slide?: string;
+
+    slidesPerRow?: number;
+
+    slidesToScroll?: number;
+
+    slidesToShow?: number;
+
+    speed?: number;
+
+    swipe?: boolean;
+
+    swipeToSlide?: boolean;
+
+    touchMove?: boolean;
+
+    touchThreshold?: number;
+
+    useCSS?: boolean;
+
+    useTransform?: boolean;
+
+    variableWidth?: boolean;
+
+    vertical?: boolean;
+
+    verticalSwiping?: boolean;
+
+    waitForAnimate?: boolean;
+
+    zIndex?: number;
+
+    autoplay?: boolean;
+
+    autoplaySpeed?: number;
+
+  };
+}
+
+interface Props {
+  accessibility?: boolean;
+
+  adaptiveHeight?: boolean;
+
+  appendArrows?: Element | JSX.Element | string;
+
+  appendDots?: Element | JSX.Element | string;
+
+  arrows?: boolean;
+
+  asNavFor?: Element | JSX.Element | string;
+
+  centerMode?: boolean;
+
+  centerPadding?: string;
+
+  cssEase?: string;
+
+  customPaging?: Function;
+
+  dots?: boolean;
+
+  dotsClass?: string;
+
+  draggable?: boolean;
+
+  easing?: string;
+
+  edgeFriction?: number;
+
+  fade?: boolean;
+
+  focusOnSelect?: boolean;
+
+  focusOnChange?: boolean;
 
   infinite?: boolean;
 
-  children?: any;
+  initialSlide?: number;
 
-  width?: number;
+  lazyLoad?: "ondemand" | "progressive";
 
-  heigth?: number;
+  mobileFirst?: boolean;
+
+  nextArrow?: Element | JSX.Element | string;
+
+  pauseOnDotsHover?: boolean;
+
+  pauseOnFocus?: boolean;
+
+  pauseOnHover?: boolean;
+
+  prevArrow?: Element | JSX.Element | string;
+
+  respondTo?: "window" | "slider";
+
+  rows?: number;
+
+  rtl?: boolean;
+
+  slide?: string;
+
+  slidesPerRow?: number;
+
+  slidesToScroll?: number;
+
+  slidesToShow?: number;
 
   speed?: number;
+
+  swipe?: boolean;
+
+  swipeToSlide?: boolean;
+
+  touchMove?: boolean;
+
+  touchThreshold?: number;
+
+  useCSS?: boolean;
+
+  useTransform?: boolean;
+
+  variableWidth?: boolean;
+
+  vertical?: boolean;
+
+  verticalSwiping?: boolean;
+
+  waitForAnimate?: boolean;
+
+  zIndex?: number;
 
   autoplay?: boolean;
 
   autoplaySpeed?: number;
 
-  nextArrow?: JSX.Element;
+  responsive?: Responsive[];
 
-  prevArrow?: JSX.Element;
+  children: any;
 }
 
 export default function SliderLayout({
   children,
 
-  infinite = true,
+  accessibility = true,
 
-  showNavigationArrows = true,
+  adaptiveHeight = false,
 
-  showPaginationDots = true,
+  appendArrows = "",
 
-  autoplay = true,
+  appendDots = "",
 
-  autoplaySpeed = 1500,
+  arrows = true,
 
-  width = 1280,
+  asNavFor = null,
 
-  heigth = 530,
+  prevArrow = '<button class="slick-prev" aria-label="Previous" type="button">Previous</button>',
 
-  nextArrow,
+  nextArrow = '<button class="slick-next" aria-label="Next" type="button">Next</button>',
 
-  prevArrow,
+  autoplay = false,
+
+  autoplaySpeed = 3000,
+
+  centerMode = false,
+
+  centerPadding = '50px',
+
+  cssEase = 'ease',
+
+  customPaging = function (slider, i) {
+    return $('<button type="button" />').text(i + 1);
+  },
+
+  dots = true,
+
+  dotsClass = 'slick-dots',
+
+  draggable = true,
+
+  easing = 'linear',
+
+  edgeFriction = 0.35,
+
+  fade = false,
+
+  focusOnSelect = false,
+
+  focusOnChange = false,
+
+  infinite = false,
+
+  initialSlide = 0,
+
+  lazyLoad = 'ondemand',
+
+  mobileFirst = false,
+
+  pauseOnHover = true,
+
+  pauseOnFocus = true,
+
+  pauseOnDotsHover = false,
+
+  respondTo = 'window',
+
+  responsive = null,
+
+  rows = 1,
+
+  rtl = false,
+
+  slide = '',
+
+  slidesPerRow = 1,
+
+  slidesToShow = 1,
+
+  slidesToScroll = 1,
 
   speed = 500,
+
+  swipe = true,
+
+  swipeToSlide = false,
+
+  touchMove = true,
+
+  touchThreshold = 5,
+
+  useCSS = true,
+
+  useTransform = true,
+
+  variableWidth = false,
+
+  vertical = false,
+
+  verticalSwiping = false,
+
+  waitForAnimate = true,
+
+  zIndex = 1000,
 }: Props) {
-  console.log(children);
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const [autoPlay, setAutoPlay] = useState(autoplay);
-  const [pos, setPos] = useState(0);
-  const quantItems = useRef<number>(children?.length);
+  children = (children instanceof Array) ? children : [children];
 
-  useEffect(() => {
-    if (autoPlay) {
-      const interval = setInterval(() => {
-        next();
-      }, autoplaySpeed);
-      return () => clearInterval(interval);
-    }
-  }, [currentSlide,autoPlay]);
+  console.log(styles);
 
-  const next = () => {
-    if (currentSlide < quantItems.current - 1) setCurrentSlide(currentSlide + 1);
-    else if (infinite) {
-      setCurrentSlide(0);
-    }
+  const settings = {
+    dots: true,
+    infinite: false,
+    speed: 500,
+    adaptiveHeight: true,
+    variableWidth: true,
+    slidesToShow: 4,
+    slidesToScroll: 4,
+    initialSlide: 0,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          infinite: true,
+          dots: true
+        }
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 2
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
+      }
+    ]
   };
-
-  const previous = () => {
-    if (currentSlide > 0) setCurrentSlide(currentSlide - 1);
-    else if (infinite) {
-      setCurrentSlide(quantItems.current - 1);
-    }
-  };
-
-  useEffect(() => {
-    setPos(width * currentSlide);
-  }, [currentSlide]);
 
   return (
-    <div className={styles["slider-container"]}>
-      <div className={styles["slider-carousel-container"]}>
-        {showNavigationArrows && (
-          <div className={styles["slider-prev-button-container"]}>
-            <button
-              className={styles["slider-button"]}
-              onClick={() => previous()}
-            >
-              <svg
-                width="21"
-                height="12"
-                viewBox="0 0 21 12"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M0.469669 6.53033C0.176777 6.23744 0.176777 5.76256 0.469669 5.46967L5.24264 0.696699C5.53553 0.403806 6.01041 0.403806 6.3033 0.696699C6.59619 0.989593 6.59619 1.46447 6.3033 1.75736L2.06066 6L6.3033 10.2426C6.59619 10.5355 6.59619 11.0104 6.3033 11.3033C6.01041 11.5962 5.53553 11.5962 5.24264 11.3033L0.469669 6.53033ZM21 6.75H1V5.25H21V6.75Z"
-                  fill="#383838"
-                />
-              </svg>
-            </button>
-          </div>
-        )}
-
-        <div
-          className={styles["slider-carousel"]}
-          onMouseOver={() => setAutoPlay(false)}
-          onMouseLeave={() => setAutoPlay(autoplay ? true : false)}
-          style={{
-            width: `${width}px`,
-            height: `${heigth}px`,
-          }}
-        >
-          {children?.map((item, i) => (
-            <div
-              className={styles["slider-carousel-item"]}
-              key={i}
-              style={{
-                position: "relative",
-                transition: `all ${speed}ms ease-in-out`,
-                width: `${width}px`,
-                height: `${heigth}px`,
-                right: `${pos}px`,
-              }}
-            >
-              {item}
-            </div>
-          ))}
+    <>
+      <div className={styles["slider-container"]}>
+        <div className={styles["slider-layout"]}>
+           <Slider props={settings}>
+            {
+              children.map((child: any, i) => (
+                <div key={i} className={styles["slider-item"]}> {child} </div>
+              ))
+            }
+           </Slider>
         </div>
-
-        {showNavigationArrows && (
-          <div className={styles["slider-next-button-container"]}>
-            <button
-              className={styles["slider-button"]}
-              onClick={() => next()}
-            >
-              <svg
-                width="21"
-                height="12"
-                viewBox="0 0 21 12"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M20.5303 6.53033C20.8232 6.23744 20.8232 5.76256 20.5303 5.46967L15.7574 0.696699C15.4645 0.403806 14.9896 0.403806 14.6967 0.696699C14.4038 0.989593 14.4038 1.46447 14.6967 1.75736L18.9393 6L14.6967 10.2426C14.4038 10.5355 14.4038 11.0104 14.6967 11.3033C14.9896 11.5962 15.4645 11.5962 15.7574 11.3033L20.5303 6.53033ZM0 6.75H20V5.25H0V6.75Z"
-                  fill="#383838"
-                />
-              </svg>
-            </button>
-          </div>
-        )}
       </div>
-
-      {showPaginationDots && (
-        <div className={styles["slider-pagination-container"]}>
-          <div className={styles["slider-pagination"]}>
-            {children?.map((item, i) => (
-              <div
-                className={`${styles["slider-pagination-item"]} ${
-                  currentSlide == i ? styles["slider-carousel-item-active"] : ""
-                }`}
-              ></div>
-            ))}
-          </div>
-        </div>
-      )}
-    </div>
+    </>
   );
 }

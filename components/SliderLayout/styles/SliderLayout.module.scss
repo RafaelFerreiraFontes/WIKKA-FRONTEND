@@ -1,3 +1,7 @@
+@import "./slick.css";
+
+@import "./slick-theme.css";
+
 .slider-container {
   display: flex;
 
@@ -17,10 +21,6 @@
     align-items: center;
 
     justify-content: center;
-
-    position: relative;
-
-    overflow-x: hidden;
 
     .slider-prev-button-container {
         left: 40px;
@@ -77,17 +77,18 @@
         align-items: center;
 
         justify-content: flex-start;
+        
+        .slider-carousel-item {
+          width: 100%;
+          
+          height: 100%;
+          
+          display: flex;
+          
+          align-items: center;
+          
+          justify-content: center;
 
-      .slider-carousel-item {
-        width: 100%;
-
-        height: 100%;
-
-        display: flex;
-
-        align-items: center;
-
-        justify-content: center;
       }
     }
   }
@@ -114,7 +115,7 @@
 
       opacity: 0.8;
 
-      max-height: pixelToRem(24);
+      height: pixelToRem(24);
 
       border-radius: pixelToRem(4);
 
